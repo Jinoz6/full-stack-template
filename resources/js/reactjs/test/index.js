@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 const Test = () => {
   return (
-    <div>index</div>
+    <div className='text-primary'>Test Component in react5</div>
   )
 }
 
