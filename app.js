@@ -6,8 +6,6 @@ import logger  from 'morgan'
 import sassMiddleware  from 'node-sass-middleware'
 import bodyParser  from 'body-parser'
 
-import indexRouter  from './routes/index'
-import usersRouter  from './routes/users'
 
 const app = express()
 
@@ -70,9 +68,9 @@ app.use(bodyParser.json());
 
 // import api_router from './routes/api'
 // app.use('/api', api_router)
-
+import indexRouter  from './routes/index'
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+// app.use('/users', usersRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
