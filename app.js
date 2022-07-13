@@ -6,8 +6,14 @@ import logger  from 'morgan'
 import sassMiddleware  from 'node-sass-middleware'
 import bodyParser  from 'body-parser'
 import helmet from 'helmet'
+import cors from 'cors'
 
 const app = express()
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}))
 
 app.use(helmet())
 
