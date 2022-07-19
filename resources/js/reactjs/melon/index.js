@@ -1,13 +1,12 @@
 
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import logos from '../../../images/logo.png'
 
 const Melon = () => {
   
   return (
     <>      
-      <img src={logos} /> 
+      <img src="/images/logo.png" alt="logo"/> 
     </>
   )
 }
