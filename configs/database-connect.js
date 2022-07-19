@@ -1,6 +1,7 @@
-import mysql from 'mysql'
+
 
 import {database as db_config} from '../env.config'
+import mysql from 'mysql'
 
 var pool = mysql.createPool({
     connectionLimit : 1000,
@@ -30,6 +31,7 @@ export default {
         
             })
         })
+       
     },
 
     pingCheck : (callback) => {

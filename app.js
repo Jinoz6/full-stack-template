@@ -7,10 +7,11 @@ import sassMiddleware  from 'node-sass-middleware'
 import bodyParser  from 'body-parser'
 import helmet from 'helmet'
 import cors from 'cors'
+// import postcssMiddleware from 
 
 const app = express()
 
-app.use(cors({
+app.use(cors({  
   origin: '*',
   methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }))
@@ -33,7 +34,7 @@ app.use(sassMiddleware({
   includePaths: [path.join(__dirname), 'node_modules'],
   debug: (app.get('env') === 'production') ? false : true,
   indentedSyntax: false, // true = .sass and false = .scss
-  outputStyle: 'compressed'
+  outputStyle: 'extended'
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -67,15 +68,30 @@ app.use(session({
     }
 }))
 
-//set up route
+//set up route API---------------------------------------------------------------------------------------
+
+import api_router from './routes/api/api'
+app.use('/api', api_router)
+
+
+//Set Route Private--------------------------------------------------------------------------------------
+import private_router from './routes/private/private'
+app.use('/admin', private_router)
+
+import adminDashboard from './routes/private/admin/dashboard'
+app.use('/auth', adminDashboard)
+
+import userLogin from './routes/private/auth/login'
+app.use('/auth', userLogin)
+
+import userRegister from './routes/private/auth/register'
+app.use('/auth', userRegister)
+
+
+//Set Route Public--------------------------------------------------------------------------------------
 import public_router from './routes/public'
 app.use('/', public_router)
 
-import private_router from './routes/private'
-app.use('/admin', private_router)
-
-import api_router from './routes/api'
-app.use('/api', api_router)
 
 
 // catch 404 and forward to error handler

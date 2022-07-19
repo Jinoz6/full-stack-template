@@ -5,12 +5,12 @@ const router = express.Router()
 
 /* GET home page. */
 router.get('/', (req, res, next)=> {
+    
     return res.json({ 'message': 'Connect Api Success.' })
   });
 
-router.get('/test-db', (req, res, next)=> {
-    TestDb.all((err, result) => {
-
+router.get('/users', (req, res, next)=> {    
+    TestDb.getUsers((err, result) => {
         if (err) {
 
             next(err)

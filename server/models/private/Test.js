@@ -1,5 +1,13 @@
 import connect from '../../../configs/database-connect'
 
-export const all = (callback) => {
-    return connect.query("SELECT client_id, client_name, updated_at FROM clients WHERE deleted_at IS NULL", [], callback)
+export const showUsers = (callback) => {
+    
+    return connect.query('SELECT * FROM users', (err, result) => {
+        if (err) {
+            callback(err, null)
+        } else {
+            callback(null, result)
+        }
+    })
+    
 }

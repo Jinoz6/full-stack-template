@@ -1,21 +1,21 @@
 #!/usr/bin/env node
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 /**
  * Module dependencies.
  */
 
-import app from '../app'
-import http from 'http'
-import debug from 'debug'
-const con_debug = debug('full-stack-template:server')
+import app from '../app';
+import http from 'http';
+import debug from 'debug';
+const con_debug = debug('full-stack-template:server');
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
 /**
