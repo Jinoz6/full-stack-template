@@ -75,8 +75,7 @@ app.use('/api', api_router)
 
 
 //Set Route Private--------------------------------------------------------------------------------------
-import private_router from './routes/private/private'
-app.use('/admin', private_router)
+
 
 import adminDashboard from './routes/private/admin/dashboard'
 app.use('/auth', adminDashboard)

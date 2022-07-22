@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express'
+var router = express.Router()
 
-/* GET home page. */
-router.get('/register', function(req, res, next) {
-  res.render('./auth/register', { title: 'Register'});
-});
 
-module.exports = router;
+import register from '../../../server/controllers/middleware/login'
+router.use('/',register)
+
+
+
+export default router

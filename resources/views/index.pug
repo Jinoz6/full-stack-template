@@ -2,119 +2,371 @@
 extends layout
 
 block content
+  #root
+  #landingPage 
+  header.header-global
+  nav#navbar-main.navbar-main.navbar-transparent.navbar-light.headroom.navbar.navbar-expand-lg.headroom--top.headroom--not-bottom
+    .container      
+      button#navbar_global.navbar-toggler
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse(toggler='#navbar_global')
+        .navbar-collapse-header
+          .row
+            .collapse-brand.col-6
+              a(href='/')
+                img(alt='...' src='/images/logo.png')
+            .collapse-close.col-6
+              button#navbar_global.navbar-toggler
+                span
+                span
+        ul.navbar-nav-hover.align-items-lg-center.navbar-nav
+            a.nav-link(aria-haspopup='true' href='#' aria-expanded='false')              
+              span.nav-link-inner--text Home
+            a.nav-link(aria-haspopup='true' href='#' aria-expanded='false')              
+              span.nav-link-inner--text About Us
+            a.nav-link(aria-haspopup='true' href='#' aria-expanded='false')              
+              span.nav-link-inner--text Contact
+              
+            //- .dropdown-menu(tabindex='-1' role='menu' aria-hidden='true')
+            //-   a.dropdown-item(tabindex='0' role='menuitem' href='#/landing-page') Landing
+            //-   a.dropdown-item(tabindex='0' role='menuitem' href='#/profile-page') Profile
+            //-   a.dropdown-item(tabindex='0' role='menuitem' href='#/login-page') Login
+            //-   a.dropdown-item(tabindex='0' role='menuitem' href='#/register-page') Register
+        ul.align-items-lg-center.ml-lg-auto.navbar-nav
+            li.nav-item
+              a#tooltip333589074.nav-link-icon.nav-link(href='https://www.facebook.com/creativetim')
+                i.fa.fa-facebook-square
+                span.nav-link-inner--text.d-lg-none.ml-2 Facebook        
+            li.d-none.d-lg-block.ml-lg-4.nav-item
+              a.btn-neutral.btn-icon.btn.btn-default(href='/auth/login')
+                span.btn-inner--icon
+                  i.fa.fa-cloud-download.mr-2
+                span.nav-link-inner--text.ml-1 SigIn
+    main
+  .position-relative
+    section.section.section-lg.section-shaped.pb-250
+      .shape.shape-style-1.shape-secondary
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+      .py-lg-md.d-flex.container
+        .col.px-0
+          .row
+            .col-lg-6
+              h1.display-2.text-white
+                | LAO - ASEAN HOSPITAL
+                
+              p.lead.text-white
+                | We are welcome to all patients and visitors to our hospital.
+                | We are here to provide you with the best service and care.
+                | We accept Insurance Payment.              
+      .separator.separator-bottom.separator-skew
+        svg(xmlns='http://www.w3.org/2000/svg' preserveaspectratio='none' version='1.1' viewbox='0 0 2560 100' x='0' y='0')
+          polygon.fill-white(points='2560 0 2560 100 0 100')
+  section.section.section-lg.pt-lg-0.mt--200
+    .container
+      .justify-content-center.row
+        .col-lg-12
+          .row-grid.row
+            .col-lg-4
+              .card-lift--hover.shadow.border-0.card
+                .py-5.card-body
+                  .icon.icon-shape.icon-shape-primary.rounded-circle.mb-4
+                    i.ni.ni-check-bold
+                  h6.text-primary.text-uppercase Download Argon
+                  p.description.mt-3
+                    | Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+                  div                    
+                  a.mt-4.btn.btn-primary(href='#pablo') Learn more
+            .col-lg-4
+              .card-lift--hover.shadow.border-0.card
+                .py-5.card-body
+                  .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+                    i.ni.ni-istanbul
+                  h6.text-success.text-uppercase Build Something
+                  p.description.mt-3
+                    | Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+                  div                    
+                  a.mt-4.btn.btn-success(href='#pablo') Learn more
+            .col-lg-4
+              .card-lift--hover.shadow.border-0.card
+                .py-5.card-body
+                  .icon.icon-shape.icon-shape-warning.rounded-circle.mb-4
+                    i.ni.ni-planet
+                  h6.text-warning.text-uppercase Prepare Launch
+                  p.description.mt-3
+                    | Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+                  div                    
+                  a.mt-4.btn.btn-warning(href='#pablo') Learn more
+  section.section.section-lg
+    .container
+      .row-grid.align-items-center.row
+        .order-md-2.col-md-6
+          img.img-fluid.floating(alt='...' src='/argon-design-system-react/static/media/promo-1.75f7ab18.png')
+        .order-md-1.col-md-6
+          .pr-md-5
+            .icon.icon-lg.icon-shape.icon-shape-success.shadow.rounded-circle.mb-5
+              i.ni.ni-settings-gear-65
+            h3 Awesome features
+            p
+              | The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you&apos;re good to go.
+            ul.list-unstyled.mt-5
+              li.py-2
+                .d-flex.align-items-center
+                  div
+                    span.badge-circle.mr-3.badge.badge-success
+                      i.ni.ni-settings-gear-65
+                  div
+                    h6.mb-0 Carefully crafted components
+              li.py-2
+                .d-flex.align-items-center
+                  div
+                    span.badge-circle.mr-3.badge.badge-success
+                      i.ni.ni-html5
+                  div
+                    h6.mb-0 Amazing page examples
+              li.py-2
+                .d-flex.align-items-center
+                  div
+                    span.badge-circle.mr-3.badge.badge-success
+                      i.ni.ni-satisfied
+                  div
+                    h6.mb-0 Super friendly support team
+  section.section.bg-secondary
+    .container
+      .row-grid.align-items-center.row
+        .col-md-6
+          .bg-default.shadow.border-0.card
+            img.card-img-top(alt='...' src='/argon-design-system-react/static/media/img-1-1200x1000.1e7c70dc.jpg')
+            blockquote.card-blockquote
+              svg.svg-bg(xmlns='http://www.w3.org/2000/svg' preserveaspectratio='none' viewbox='0 0 583 95')
+                polygon.fill-default(points='0,52 583,95 0,95')
+                polygon.fill-default(opacity='.2' points='0,42 583,95 683,0 0,95')
+              h4.display-3.font-weight-bold.text-white Design System
+              p.lead.text-italic.text-white
+                | The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens.
+        .col-md-6
+          .pl-md-5
+            .icon.icon-lg.icon-shape.icon-shape-warning.shadow.rounded-circle.mb-5
+              i.ni.ni-settings
+            h3 Our customers
+            p.lead
+              | Don&apos;t let your uses guess by attaching tooltips and popoves to any element. Just make sure you enable them first via JavaScript.
+            p
+              | The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you&apos;re good to go.
+            p
+              | The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you&apos;re good to go.
+            a.font-weight-bold.text-warning.mt-5(href='#pablo') A beautiful UI Kit for impactful websites
+  section.section.pb-0.bg-gradient-warning
+    .container
+      .row-grid.align-items-center.row
+        .order-lg-2.ml-lg-auto.col-md-6
+          .position-relative.pl-md-5
+            img.img-center.img-fluid(alt='...' src='/argon-design-system-react/static/media/ill-2.594b1ee1.svg')
+        .order-lg-1.col-lg-6
+          .d-flex.px-3
+            div
+              .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+                i.ni.ni-building.text-primary
+            .pl-4
+              h4.display-3.text-white Modern Interface
+              p.text-white
+                | The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.
+          .shadow.shadow-lg--hover.mt-5.card
+            .card-body
+              .d-flex.px-3
+                div
+                  .icon.icon-shape.bg-gradient-success.rounded-circle.text-white
+                    i.ni.ni-satisfied
+                .pl-4
+                  h5.title.text-success Awesome Support
+                  p
+                    | The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.
+                  a.text-success(href='#pablo') Learn more
+          .shadow.shadow-lg--hover.mt-5.card
+            .card-body
+              .d-flex.px-3
+                div
+                  .icon.icon-shape.bg-gradient-warning.rounded-circle.text-white
+                    i.ni.ni-active-40
+                .pl-4
+                  h5.title.text-warning Modular Components
+                  p
+                    | The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.
+                  a.text-warning(href='#pablo') Learn more
+    .separator.separator-bottom.separator-skew.zindex-100
+      svg(xmlns='http://www.w3.org/2000/svg' preserveaspectratio='none' version='1.1' viewbox='0 0 2560 100' x='0' y='0')
+        polygon.fill-white(points='2560 0 2560 100 0 100')
+  section.section.section-lg
+    .container
+      .justify-content-center.text-center.mb-lg.row
+        .col-lg-8
+          h2.display-3 The amazing Team
+          p.lead.text-muted
+            | According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record maximum.
+      .row
+        .mb-5.mb-lg-0.col-md-6.col-lg-3
+          .px-4
+            img.rounded-circle.img-center.img-fluid.shadow.shadow-lg--hover(alt='...' src='/argon-design-system-react/static/media/team-1-800x800.53033970.jpg' style='width: 200px;')
+            .pt-4.text-center
+              h5.title
+                span.d-block.mb-1 Ryan Tompson
+                small.h6.text-muted Web Developer
+              .mt-3
+                a.btn-icon-only.rounded-circle.btn.btn-warning(href='#pablo')
+                  i.fa.fa-twitter
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-warning(href='#pablo')
+                  i.fa.fa-facebook
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-warning(href='#pablo')
+                  i.fa.fa-dribbble
+        .mb-5.mb-lg-0.col-md-6.col-lg-3
+          .px-4
+            img.rounded-circle.img-center.img-fluid.shadow.shadow-lg--hover(alt='...' src='/argon-design-system-react/static/media/team-2-800x800.dcfcf3b7.jpg' style='width: 200px;')
+            .pt-4.text-center
+              h5.title
+                span.d-block.mb-1 Romina Hadid
+                small.h6.text-muted Marketing Strategist
+              .mt-3
+                a.btn-icon-only.rounded-circle.btn.btn-primary(href='#pablo')
+                  i.fa.fa-twitter
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-primary(href='#pablo')
+                  i.fa.fa-facebook
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-primary(href='#pablo')
+                  i.fa.fa-dribbble
+        .mb-5.mb-lg-0.col-md-6.col-lg-3
+          .px-4
+            img.rounded-circle.img-center.img-fluid.shadow.shadow-lg--hover(alt='...' src='/argon-design-system-react/static/media/team-3-800x800.497bb359.jpg' style='width: 200px;')
+            .pt-4.text-center
+              h5.title
+                span.d-block.mb-1 Alexander Smith
+                small.h6.text-muted UI/UX Designer
+              .mt-3
+                a.btn-icon-only.rounded-circle.btn.btn-info(href='#pablo')
+                  i.fa.fa-twitter
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-info(href='#pablo')
+                  i.fa.fa-facebook
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-info(href='#pablo')
+                  i.fa.fa-dribbble
+        .mb-5.mb-lg-0.col-md-6.col-lg-3
+          .px-4
+            img.rounded-circle.img-center.img-fluid.shadow.shadow-lg--hover(alt='...' src='/argon-design-system-react/static/media/team-4-800x800.23007132.jpg' style='width: 200px;')
+            .pt-4.text-center
+              h5.title
+                span.d-block.mb-1 John Doe
+                small.h6.text-muted Founder and CEO
+              .mt-3
+                a.btn-icon-only.rounded-circle.btn.btn-success(href='#pablo')
+                  i.fa.fa-twitter
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-success(href='#pablo')
+                  i.fa.fa-facebook
+                a.btn-icon-only.rounded-circle.ml-1.btn.btn-success(href='#pablo')
+                  i.fa.fa-dribbble
+  section.section.section-lg.pt-0
+    .container
+      .bg-gradient-warning.shadow-lg.border-0.card
+        .p-5
+          .align-items-center.row
+            .col-lg-8
+              h3.text-white We made website building easier for you.
+              p.lead.text-white.mt-3
+                | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture.
+            .ml-lg-auto.col-lg-3
+              a.btn-white.btn.btn-default.btn-lg.btn-block(href='https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page') Download React
+  section.section.section-lg.bg-gradient-default
+    .pt-lg.pb-300.container
+      .text-center.justify-content-center.row
+        .col-lg-10
+          h2.display-3.text-white Build something
+          p.lead.text-white
+            | According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice.
+      .row-grid.mt-5.row
+        .col-lg-4
+          .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+            i.ni.ni-settings.text-primary
+          h5.text-white.mt-3 Building tools
+          p.text-white.mt-3
+            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+        .col-lg-4
+          .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+            i.ni.ni-ruler-pencil.text-primary
+          h5.text-white.mt-3 Grow your market
+          p.text-white.mt-3
+            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+        .col-lg-4
+          .icon.icon-lg.icon-shape.bg-gradient-white.shadow.rounded-circle.text-primary
+            i.ni.ni-atom.text-primary
+          h5.text-white.mt-3 Launch time
+          p.text-white.mt-3
+            | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+    .separator.separator-bottom.separator-skew.zindex-100
+      svg(xmlns='http://www.w3.org/2000/svg' preserveaspectratio='none' version='1.1' viewbox='0 0 2560 100' x='0' y='0')
+        polygon.fill-white(points='2560 0 2560 100 0 100')
+  section.section.section-lg.pt-lg-0.section-contact-us
+    .container
+      .justify-content-center.mt--300.row
+        .col-lg-8
+          .bg-gradient-secondary.shadow.card
+            .p-lg-5.card-body
+              h4.mb-1 Want to work with us?
+              p.mt-0 Your project is very important to us.
+              .mt-5.form-group
+                .input-group-alternative.input-group
+                  .input-group-prepend
+                    span.input-group-text
+                      i.ni.ni-user-run
+                  input.form-control(placeholder='Your name' type='text')
+              .form-group
+                .input-group-alternative.input-group
+                  .input-group-prepend
+                    span.input-group-text
+                      i.ni.ni-email-83
+                  input.form-control(placeholder='Email address' type='email')
+              .mb-4.form-group
+                textarea.form-control-alternative.form-control(cols='80' name='name' placeholder='Type a message...' rows='4')
+              div
+                button.btn-round.btn.btn-default.btn-lg.btn-block(type='button') Send Message
+  section.section.section-lg
+    .container
+      .row-grid.justify-content-center.row
+        .text-center.col-lg-8
+          h2.display-3
+            | Do you love this awesome 
+            span.text-success Design System for Bootstrap 4?
+          p.lead
+            | Cause if you do, it can be yours for FREE. Hit the button below to navigate to Creative Tim where you can find the Design System in React. Start a new project or give an old Bootstrap project a new look!
+          .btn-wrapper
+            a.mb-3.mb-sm-0.btn.btn-primary(href='https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page') Download React
+          .text-center
+            h4.display-4.mb-5.mt-5 Available on these technologies
+            .justify-content-center.row
+              .col-4.col-lg-2
+                a#tooltip255035741(href='https://www.creative-tim.com/product/argon-design-system?ref=adsr-landing-page' target='_blank')
+                  img.img-fluid(alt='...' src='https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/bootstrap.jpg')
+              .col-4.col-lg-2
+                a#tooltip265846671(href='https://www.creative-tim.com/product/vue-argon-design-system?ref=adsr-landing-page' target='_blank')
+                  img.img-fluid(alt='...' src='https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/vue.jpg')
+              .col-4.col-lg-2
+                a#tooltip233150499(href='https://www.creative-tim.com/product/argon-design-system-angular?ref=adsr-landing-page' target='_blank')
+                  img.img-fluid(alt='...' src='https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/angular.jpg')
+              .col-4.col-lg-2
+                a#tooltip308866163(href='https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page' target='_blank')
+                  img.img-fluid(alt='...' src='https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/react.jpg')
+              .col-4.col-lg-2
+                a#tooltip76119384(href='https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page' target='_blank')
+                  img.img-fluid(alt='...' src='https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/sketch.jpg')
+              .col-4.col-lg-2
+                a#tooltip646643508(href='https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page' target='_blank')
+                  img.img-fluid(alt='...' src='https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg')
 
-  <nav id="navbar-main" class="navbar-main navbar-transparent navbar-light headroom navbar navbar-expand-lg headroom--top headroom--not-bottom">
-  <div class="container">
-  <a class="mr-lg-5 navbar-brand" href="#/">
-  #melon
-  </a>
-  <button class="navbar-toggler" id="navbar_global">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  <div toggler="#navbar_global" class="collapse navbar-collapse">
-  <div class="navbar-collapse-header">
-  <div class="row">
-  <div class="collapse-brand col-6">
-  <a href="#/">
-  <img alt="..." src=""></a>
-  </div>
-  <div class="collapse-close col-6">
-  <button class="navbar-toggler" id="navbar_global">
-  <span></span>
-  <span></span>
-  </button>
-  </div>
-  </div>
-  </div>
-  <ul class="navbar-nav-hover align-items-lg-center navbar-nav">
-  <li class="dropdown nav-item">
-  <a aria-haspopup="true" href="#" class="nav-link" aria-expanded="false">
-  <i class="ni ni-ui-04 d-lg-none mr-1"></i>
-  <span class="nav-link-inner--text">Components</span>
-  </a>
-  <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl dropdown-menu">
-  <div class="dropdown-menu-inner">
-  <a class="d-flex align-items-center media" href="#/documentation/overview">
-  <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-  <i class="ni ni-spaceship"></i>
-  </div>
-  <div class="ml-3 media-body">
-  <h6 class="heading text-primary mb-md-1">Getting started</h6>
-  <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p>
-  </div>
-  </a>
-  <a class="d-flex align-items-center media" href="#/documentation/colors">
-  <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-  <i class="ni ni-palette"></i>
-  </div>
-  <div class="ml-3 media-body">
-  <h6 class="heading text-primary mb-md-1">Foundation</h6>
-  <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
-  </div>
-  </a>
-  <a class="d-flex align-items-center media" href="#/documentation/alert">
-  <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-  <i class="ni ni-ui-04"></i>
-  </div>
-  <div class="ml-3 media-body">
-  <h5 class="heading text-warning mb-md-1">Components</h5>
-  <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
-  </div>
-  </a>
-  </div>
-  </div>
-  </li>
-  <li class="dropdown nav-item"><a aria-haspopup="true" href="#" class="nav-link" aria-expanded="false">
-  <i class="ni ni-collection d-lg-none mr-1"></i>
-  <span class="nav-link-inner--text">Examples</span>
-  </a>
-  <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
-  <a tabindex="0" role="menuitem" class="dropdown-item" href="#/landing-page">Landing</a>
-  <a tabindex="0" role="menuitem" class="dropdown-item" href="#/profile-page">Profile</a>
-  <a tabindex="0" role="menuitem" class="dropdown-item" href="#/login-page">Login</a>
-  <a tabindex="0" role="menuitem" class="dropdown-item" href="#/register-page">Register</a>
-  </div>
-  </li>
-  </ul>
-  <ul class="align-items-lg-center ml-lg-auto navbar-nav">
-  <li class="nav-item">
-  <a href="https://www.facebook.com/creativetim" id="tooltip333589074" target="_blank" class="nav-link-icon nav-link">
-  <i class="fa fa-facebook-square"></i>
-  <span class="nav-link-inner--text d-lg-none ml-2">Facebook</span>
-  </a>
-  </li>
-  <li class="nav-item">
-  <a href="https://www.instagram.com/creativetimofficial" id="tooltip356693867" target="_blank" class="nav-link-icon nav-link">
-  <i class="fa fa-instagram"></i>
-  <span class="nav-link-inner--text d-lg-none ml-2">Instagram</span>
-  </a>
-  </li>
-  <li class="nav-item"><a href="https://twitter.com/creativetim" id="tooltip184698705" target="_blank" class="nav-link-icon nav-link">
-  <i class="fa fa-twitter-square"></i>
-  <span class="nav-link-inner--text d-lg-none ml-2">Twitter</span>
-  </a>
-  </li>
-  <li class="nav-item">
-  <a href="https://github.com/creativetimofficial/argon-design-system-react" id="tooltip112445449" target="_blank" class="nav-link-icon nav-link">
-  <i class="fa fa-github"></i>
-  <span class="nav-link-inner--text d-lg-none ml-2">Github</span>
-  </a>
-  </li>
-  <li class="d-none d-lg-block ml-lg-4 nav-item">
-  <a href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-navbar" target="_blank" class="btn-neutral btn-icon btn btn-default">
-  <span class="btn-inner--icon">
-  <i class="fa fa-cloud-download mr-2"></i>
-  </span>
-  <span class="nav-link-inner--text ml-1">Download</span>
-  </a>
-  </li>
-  </ul>
-  </div>
-  </div>
-  </nav>
-   
+  
  
       
-      script(src="/javascripts/components/melon/melon.js")
+    script(src="/javascripts/components/landingPage/landing.js")
       
   

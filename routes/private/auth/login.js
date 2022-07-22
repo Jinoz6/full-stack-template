@@ -2,7 +2,7 @@ import express from 'express'
 var router = express.Router()
 
 
-import login from '../../../server/controllers/middleware/login'
+import login from '../../../server/controllers/middleware/register'
 router.use('/',login)
 
 
