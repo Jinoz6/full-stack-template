@@ -1,6 +1,6 @@
 import connect from '../../../configs/database-connect'
 import bcrypt from 'bcrypt'
-
+import jwt from 'jsonwebtoken'
 // Register User
 
 
@@ -52,21 +52,36 @@ export const logger = (req, res, next) => {
             if(!result.length){
                 return res.json({
                     status: 400,
-                    message: 'Username not exist'
+                    message: 'Sorry, username or password is incorrect'
                 })
             }
             bcrypt.compare(req.body.password, result[0].password, (err, result) => {
-                if(err){
+                if (err) {
                     next(err)
+                } else {
+                    if (result) {
+                        // create token
+                        const token = jwt.sign({                            
+                            username: result[0],                            
+                            password: result[0]
+                        }, 'secret', {
+                            expiresIn: '1h'
+                        })
+                        return res.json({
+                            status: 200,
+                            message: 'login success',
+                            data: {
+                                token: token,
+                                user: result[0]
+                            }
+                        })
+                    } else {
+                        return res.json({
+                            status: 400,
+                            message: 'Sorry, username or password is incorrect'
+                        })
+                    }
                 }
-                if(result){
-                    
-                    return res.json({
-                        status: 200,
-                        message: 'Login success',
-                        data: result
-                    })                 
-                }                
             })
         }
     })

@@ -13,11 +13,13 @@ router.post('/login',loginUser.logger,(req, res, next)=> {
     if (err) {
       next(err)
     } else {
-      return res.json({
+      return res.send({
         status: 200,
-        message: 'OK', 
+        message: 'OK',
         data: req.body
       })
     }
 });
+
+
 export default router

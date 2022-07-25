@@ -21,4 +21,5 @@ router.post('/register',registerUser.createUser,(req, res, next)=> {
   }
 });
 
+
 export default router
