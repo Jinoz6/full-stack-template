@@ -1,5 +1,5 @@
 import express from 'express'
-import * as TestDb from '../../models/api/Test'
+import * as TestDb from '../../models/api/models_api'
 
 const router = express.Router()
 

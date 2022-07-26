@@ -69,22 +69,14 @@ app.use(session({
 }))
 
 //set up route API---------------------------------------------------------------------------------------
-
-import api_router from './routes/api/api'
+import api_router from './routes/api'
 app.use('/api', api_router)
 
 
 //Set Route Private--------------------------------------------------------------------------------------
+import private_router from './routes/private'
+app.use('/auth',private_router)
 
-
-import adminDashboard from './routes/private/admin/dashboard'
-app.use('/auth', adminDashboard)
-
-import userLogin from './routes/private/auth/login'
-app.use('/auth', userLogin)
-
-import userRegister from './routes/private/auth/register'
-app.use('/auth', userRegister)
 
 
 //Set Route Public--------------------------------------------------------------------------------------
