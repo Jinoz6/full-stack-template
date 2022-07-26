@@ -1,6 +1,8 @@
 
-import express, { json } from 'express'
+import express from 'express'
 import * as database from '../../models/private/models_private'
+
+
 
 const router = express.Router()
 
@@ -16,18 +18,16 @@ router.post('/login',(req, res, next)=> {
      next(err)
     }else{
      //check user match      
-      const user = result.find(user => user.username === req.body.username && user.password === req.body.password)
-      const admin = result.find(admin => admin.role === req.body.role)
-      if(user == admin){       
-        return res.send({'status':'admin'})      
+      const user = result.find(user => user.username === req.body.username)
+      if(!user){
+        return res.status(401).send({message:'User not found'})
       }else{
-        if(user == admin){
-          return res.send({'status':'user'})
+        if(user.password === req.body.password){
+          return res.status(200).send({message:'Login success', user:user})
+        }else{
+          return res.status(401).send({message:'Password incorrect'})
         }
       }
-      if(!user){
-        return res.send({'status':'No user found'})
-    }
     }
   })
 });
