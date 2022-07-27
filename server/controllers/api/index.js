@@ -11,10 +11,8 @@ router.get('/', (req, res, next)=> {
 router.get('/users', (req, res, next)=> {    
     TestDb.getUsers((err, result) => {
         if (err) {
-
             next(err)
         } else {
-
             return res.json({
                 status: 200,
                 message: 'OK', 
