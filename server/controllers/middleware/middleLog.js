@@ -1,37 +1,58 @@
-
 import express from 'express'
-const router = express.Router()
-
+// import * as database from '../../models/private/models_private'
+import jwt from 'jsonwebtoken'
+var router = express.Router()
 // middleware(['admin','user'])
-const authPermission = (permissions)=>{
-    return (req, res, next)=>{
-        const role = req.body.role
-        if(permissions.includes(role)){
-            next()
-        }else{
-            return res.status(401).send({message:'You are not authorized'})
-        }
-    }
+
+export const userLogger = (req, res, next) => {  
+   if(user.role == 'admin'){
+     return res.redirect('/auth/dashboard')
+   }
+   next()
+   if(user.role == 'user'){
+     return res.redirect('/auth/dashboard')
+   }
+   next()
 }
 
-const authAccess = (req, res, next)=>{
-    const token = req.headers['x-access-token']
+
+
+
+
+
+
+export const authLogger = (req, res, next) => {
+    const user = req.body.username
+    if(user == null){
+        return res.status(403).send({message:'You need to login first'})
+    }
+    next();
+}
+
+
+export const verifyToken = (req, res, next)=>{
+   const token = req.headers['x-access-token']
     if(!token){
         return res.status(401).send({message:'No token provided'})
-    }
-    jsonwebtoken.verify(token, key, (err, decoded)=>{
-        if(err){
-            return res.status(401).send({message:'Failed to authenticate token'})
+    }else{
+        if(token){
+            jwt.verify(token,(err, decoded)=>{
+                if(err){
+                    return res.status(401).send({message:'Invalid token'})
+                }else{
+                    req.decoded = decoded
+                    next()
+                }
+            })
         }
-        req.userId = decoded.id
-        next()
-    })
+    }
 }
-
-
-
 
 
 
 
 export default router
+
+
+
+

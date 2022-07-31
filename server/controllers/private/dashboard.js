@@ -1,13 +1,13 @@
 
 import express from 'express'
 import * as database from '../../models/private/models_private'
-var crypto = require('crypto');
+import jwt from 'jsonwebtoken'
 
 
 const router = express.Router()
-
+const middleware = require('../middleware/middleLog')
 /* GET LogIn page. */
-router.get('/login', (req, res, next)=> {
+router.get('/login',middleware.authLogger,(req, res, next)=> {
   return res.render('./auth/login', { title: 'Login' });
 });
 
@@ -18,17 +18,22 @@ router.post('/login',(req, res, next)=> {
      next(err)
     }else{
      //check user match      
-      const user = result.find(user => user.username === req.body.username)
+      const user = result.find(user => user.username === req.body.username)      
       if(!user){
         return res.status(401).send({message:'No user found'})
       }else{
         if(user.password === req.body.password){
-          return res.status(200).send({message:'Login success', data:user})
-        }else{
+          // user token
+          const accessToken = jwt.sign({username: user.username, password: user.password, role: user.role}, 'lao-asean-hospital', {expiresIn: '5s' });
+          // store token in session
+          req.session.token = accessToken
+          return res.status(200).send({message:'Login success', data:accessToken})          
+        }else{                          
           return res.status(401).send({message:'Password incorrect'})
-        }
+        }        
       }
     }
+   
   })
 });
 
@@ -37,30 +42,19 @@ router.post('/login',(req, res, next)=> {
 
 
 /* GET Register page. */
-router.get('/register', (req, res, next)=> {
+router.get('/register',(req, res, next)=> {
   return res.render('./auth/register', { title: 'Register' });
  });
-router.post('/register',(req, res, next)=> {      
-    database.addUser((err, result)=> {
-      const newUser = {       
-        id: result.length + 1,
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-        role: req.body.role,
-        TimeStamp: new Date(),
-        Date: new Date().toLocaleDateString()
-      }
-      crypto.randomBytes(256, (err, buf)=> {
-        //encrypt newUser
-        const salt = buf.toString('hex')
-        const hash = crypto.pbkdf2Sync(newUser.password, salt, 10000, 512, 'sha512').toString('hex')
-        newUser.password = hash
-        newUser.salt = salt
-        //insert newUser        
+router.post('/register',database.createUser,(req, res, next)=> {
+    if(err) {
+     next(err)
+    }else{
+      return res.json({
+        status: 200,
+        message: 'OK', 
+        data: req.body
       })
-      return res.status(200).send({message:'Register success', data:newUser})           
-    })
+    } 
 });
 
 
@@ -69,13 +63,20 @@ router.post('/register',(req, res, next)=> {
 
 
 /* GET DashBoard page. */
-router.get('/dashboard', (req, res, next)=> {
-   return res.render('./dashboard/dashboard', { title: 'Dashboard' });
-  });
+router.get('/dashboard',middleware.authLogger,(req, res, next)=> {    
+    return res.render('./dashboard/dashboard', { title: 'DashBoard' }); 
+});
+
 
 
 /* End DashBoard page. */
 
+/* GET DashBoard page. */
+router.get('/opd', (req, res, next)=> {
+  return res.render('./opd/opd', { title: 'OPD' });
+ });
 
+
+/* End DashBoard page. */
 
 export default router

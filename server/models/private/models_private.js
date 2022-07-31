@@ -1,5 +1,5 @@
 import connect from '../../../configs/database-connect'
-
+var crypto = require('crypto');
 // Register User
 
 export const users = (callback) => {
@@ -8,14 +8,43 @@ export const users = (callback) => {
 
 //New User execute
 
-export const addUser = (callback) => {
-  return connect.query("SELECT * FROM users",[], callback)
+// export const addUser = (callback) => {
+//  connect.query("SELECT * FROM users",[], callback)
+    
+// }
+
+
+// export const addUser = (callback) => {
+//   return connect.query('SELECT * FROM users', [], callback)
+// }
+export const createUser = (req, res, next) => {
+  // check username is already exist
+  connect.query(`SELECT * FROM users WHERE username = '${req.body.username}'`, (err, result) => {
+      if (err) {         
+          next(err)
+      } else {          
+      if (result.length > 0) {
+          return res.json({
+              status: 400,
+              message: 'Username already exist'
+          })
+      } else
+            {
+              // insert user to database
+            connect.query(`INSERT INTO users (id,username, password, email, role ) VALUES ('${req.body.id}','${req.body.username}', '${req.body.password}', '${req.body.email}', '${req.body.role}')`, (err, result) => {
+            if (err) {
+              next(err)
+          } 
+            else 
+          {
+            return res.json({
+                status: 200,
+                message: 'register success',
+                data: result
+            })
+          }
+        })
+      }          
+    }
+  })
 }
-//UPDATE new user into users
-
-
-//Create Table users
-
-  // export const createTableUsers = (callback) => {
-  //   return connect.query("CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, role VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, TimeStamp TIMESTAMP NOT NULL, Date DATE NOT NULL)",[], callback)
-  // }
