@@ -2,9 +2,9 @@ import express from 'express'
 
 const router = express.Router()
 
-/* GET home page. */
+/* GET LogIn page. */
 router.get('/', (req, res, next) => {
-  return res.render('index', { title: 'Lao-Asean Hospital' });
+    return res.render('./auth/login', { title: 'Login' });
 });
 
 export default router

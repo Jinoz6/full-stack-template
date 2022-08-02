@@ -4,15 +4,15 @@ import jwt from 'jsonwebtoken'
 var router = express.Router()
 // middleware(['admin','user'])
 
-export const userLogger = (req, res, next) => {  
-   if(user.role == 'admin'){
-     return res.redirect('/auth/dashboard')
-   }
-   next()
-   if(user.role == 'user'){
-     return res.redirect('/auth/dashboard')
-   }
-   next()
+export const userLogger = (req, res, next) => {
+    if (user.role == 'admin') {
+        return res.redirect('/auth/dashboard')
+    }
+    next()
+    if (user.role == 'user') {
+        return res.redirect('/auth/dashboard')
+    }
+    next()
 }
 
 
@@ -23,23 +23,23 @@ export const userLogger = (req, res, next) => {
 
 export const authLogger = (req, res, next) => {
     const user = req.body.username
-    if(user == null){
-        return res.status(403).send({message:'You need to login first'})
+    if (user == null) {
+        return res.redirect('/login')
     }
     next();
 }
 
 
-export const verifyToken = (req, res, next)=>{
-   const token = req.headers['x-access-token']
-    if(!token){
-        return res.status(401).send({message:'No token provided'})
-    }else{
-        if(token){
-            jwt.verify(token,(err, decoded)=>{
-                if(err){
-                    return res.status(401).send({message:'Invalid token'})
-                }else{
+export const verifyToken = (req, res, next) => {
+    const token = req.headers['x-access-token']
+    if (!token) {
+        return res.status(401).send({ message: 'No token provided' })
+    } else {
+        if (token) {
+            jwt.verify(token, (err, decoded) => {
+                if (err) {
+                    return res.status(401).send({ message: 'Invalid token' })
+                } else {
                     req.decoded = decoded
                     next()
                 }
